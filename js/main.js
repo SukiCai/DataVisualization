@@ -3,24 +3,15 @@
  */
 
 Promise.all([
-  d3.json('data/africa.json'),
-  d3.csv('data/data.csv')
-  // d3.csv('data/region_population_density.csv')
+  d3.json('data/world-110m.json'),
+  d3.csv('data/world_wonders.csv')
 ]).then(data => {
-  const geoData = data[0];
-  const countryData = data[1];
+  data[1].forEach(d => {
+    d.visitors = +d.visitors;
+  })
 
-  // Combine both datasets by adding the population density to the TopoJSON file
-  geoData.objects.collection.geometries.forEach(d => {
-    for (let i = 0; i < countryData.length; i++) {
-      if (d.properties.name == countryData[i].region) {
-        d.properties.pop_density = +countryData[i].pop_density;
-      }
-    }
-  });
-
-  const choroplethMap = new ChoroplethMap({ 
+  const geoMap = new GeoMap({ 
     parentElement: '#map'
-  }, data[0]);
+  }, data[0], data[1]);
 })
 .catch(error => console.error(error));
