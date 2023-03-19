@@ -117,7 +117,12 @@ class ScatterPlot {
       // Get the selected option
       const selectedOption = d3.select(this).property("value");
       vis.add_circles(selectedOption);
-      let mean = d3.mean(vis.data.filter(d=>d.properties.Status == selectedOption), d => d.properties.GDP);
+      let mean = 0;
+      if (selectedOption == "All"){
+         mean = d3.mean(vis.data, d => d.properties.GDP);
+      } else {
+         mean = d3.mean(vis.data.filter(d=>d.properties.Status == selectedOption), d => d.properties.GDP);
+      }
       vis.svg.selectAll('.mean-line')
       .attr("x1", vis.config.margin.left)
       .attr("y1", vis.yScale(mean))
@@ -187,7 +192,6 @@ class ScatterPlot {
     let vis = this;
     //Add text label annotation with the average accuracy of that trial
     let mean = d3.mean(vis.data, d => d.properties.GDP);
-    console.log(mean)
 
     const maxLE = d => {
       return d.reduce((acc, curr) => {
