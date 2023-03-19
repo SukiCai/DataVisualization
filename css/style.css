@@ -20,6 +20,19 @@ body {
   stroke: none;
 }
 
+.point.selected {
+  stroke:#000;
+  fill:aqua;
+  opacity: 1;
+  position: relative;
+  z-index: 1000;
+}
+
+.point {
+  position: relative;
+  z-index: 1;
+}
+
 .geo-boundary-path {
   stroke: #fff;
   fill: none;
@@ -51,4 +64,17 @@ body {
   color: #000;
   font-size: 14px;
   font-weight: 600;
+}
+
+.dropdown {
+  font-size: "16px";
+  font-family: "sans-serif";
+  padding: "6px";
+  background-color: "#fff";
+  border: "1px solid #ccc";
+  border-radius: "4px";
+}
+
+.point:hover {
+  stroke: #000;
 }
