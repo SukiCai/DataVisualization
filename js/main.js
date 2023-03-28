@@ -65,7 +65,7 @@ dispatcher.on('changeYear', year => {
   // other charts update
 });
 
-
+d3.select("#year_slider").property("value", selectedYear);
 slider = d3.select("#year_slider").on("change", function() {
   year = d3.select(this).property("value");
   dispatcher.call('changeYear', null, year)
