@@ -122,13 +122,22 @@ class BarChart   {
       .join('rect');
 
     bars.style('opacity', 0.5)
-      .transition().duration(1000)
+      .transition().duration(500)
       .style('opacity', 1)
       .attr('class', 'bar')
       .attr('x', d => vis.xScale(vis.xValue(d)))
       .attr('width', vis.xScale.bandwidth())
       .attr('height', d => vis.height - vis.yScale(vis.yValue(d)))
       .attr('y', d => vis.yScale(vis.yValue(d)))
+        .attr('fill', d => {
+            console.log(d.year, vis.selectedYear)
+            if (d.year === +vis.selectedYear) {
+                return 'red';
+            } else {
+                return 'steelblue';
+            }
+        })
+
 
 
     // Add labels

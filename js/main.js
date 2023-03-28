@@ -61,6 +61,8 @@ dispatcher.on('unSelectCountries', s => {
 dispatcher.on('changeYear', year => {
   lineChart.selectedYear = year
   lineChart.updateVis()
+  barChart.selectedYear = year
+  barChart.updateVis()
   slider.property("value", year);
   // other charts update
 });
@@ -98,6 +100,8 @@ function reset() {
   selectedYear = 2013;
   lineChart.selectedYear = selectedYear
   lineChart.updateVis()
+  barChart.selectedYear = selectedYear
+  barChart.updateVis()
   slider.property("value", selectedYear);
 }
 
