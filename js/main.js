@@ -33,6 +33,9 @@ d3.csv('data/Life_Expectancy_Data.csv').then(_data => {
 
   lineChart = new LineChartE({ parentElement: '#line-chart'}, filter_country(selectedCountry), dispatcher, selectedCountry, selectedYear);
   lineChart.updateVis();
+
+  barChart = new BarChart({ parentElement: '#bar-chart'}, data, dispatcher, selectedCountry, selectedYear);
+  barChart.updateVis();
 });
 
 

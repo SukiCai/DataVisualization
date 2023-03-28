@@ -160,6 +160,7 @@ class LineChartE {
             .data([vis.selectedYear])
             .join('rect')
             .attr('class', 'year-line')
+            .transition()
             .attr('x', d => vis.xScale(d)-5)
             .attr('width', 10)
             .attr('height', vis.height)
