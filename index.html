@@ -1,26 +1,208 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>D3 Symbol Map</title>
-    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
-    <link rel="stylesheet" href="css/style.css">
+  <title>CPSC447 Project G22</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-    <div id="map"></div>
-    <div id = "scatterBox">
-        <select id="dropdown">
-            <option>All</option>
-            <option>Developed</option>
-            <option>Developing</option>
-        </select>
-        <div id="scatterplot"></div>
+
+<body class="w3-light-grey">
+
+  <!-- Background -->
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-middle">
+      <h1 class="w3-jumbo w3-animate-top">World Life Expectency Visualization</h1>
+      <hr class="w3-border-grey" style="margin:auto;width:20%">
+      <p class="w3-large w3-center">CPSC447 Course Project</p>
+      <button id="learn-more-btn" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Learn More</button>
     </div>
-    <div id="tooltip"></div>
-    
-    <script src="js/d3.v6.min.js"></script>
-    <script src="js/topojson.v3.js"></script>
-    <script src="js/geoMap.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/scatterPlot.js"></script>
+  </div>
+
+  <div class="w3-content" style="max-width:1400px">
+
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-32" id="header">
+      <h1><b>World Life Expectency Visualization Application</b></h1>
+      <p>Welcome to the project of <span class="w3-tag">Suki C, Andy L and Anthony Cheng</span></p>
+    </header>
+
+    <!-- Grid -->
+    <div class="w3-row">
+
+      <!-- Left Entries -->
+      <div class="w3-col l8 s12">
+        <!-- Introduction entry -->
+        <div class="w3-card-4 w3-margin w3-white">
+
+          <div class="w3-container w3-margin-top">
+            <h3><b>INTRODUCTION</b></h3>
+            <h5>Background, <span class="w3-opacity">Mar 28, 2023</span></h5>
+          </div>
+
+          <div class="w3-container">
+            <p>Life expectancy is a critical indicator for assessing the overall health of a population. This crucial
+              metric captures the mortality rate across an individual's lifetime, reflecting the average age of death
+              within a specific group. Emphasizing a detailed visualization analysis of life expectancy is vital, as it
+              sheds light on the health conditions of a population and guides strategic planning and resource allocation
+              in healthcare services. Additionally, it can influence government decisions regarding program funding and
+              investments.</p>
+            <p>Despite considerable improvements in global life expectancy, significant disparities still exist between
+              countries, with a 30-year gap separating the highest and lowest life expectancies. Identifying and
+              understanding the key factors influencing life expectancy is crucial for shaping national policies,
+              particularly in countries with lower life expectancies.
+            <p>The primary goal of our visualization application is to effectively explore and identify potential risk
+              factors or areas where health interventions could be focused to improve life expectancy outcomes, offering
+              valuable insights to inform policy decisions aimed at addressing these disparities. The project will focus
+              on visually representing and analyzing a WHO dataset with health intervention-related features, helping
+              users better understand the underlying factors and their relationships.</p>
+            </p>
+          </div>
+        </div>
+        <hr>
+
+        <!-- Chart entry -->
+        <div class="w3-card-4 w3-margin w3-white">
+          <div class="w3-container">
+            <h3><b>World Life Expectency Distribution Map</b></h3>
+            <h5>Data Obtained, <span class="w3-opacity">From April 2, 2014 to April 4, 2023</span></h5>
+          </div>
+
+          <div class="w3-container">
+            <div id="map"></div>
+            <div id="scatterBox">
+              <select id="dropdown">
+                <option>All</option>
+                <option>Developed</option>
+                <option>Developing</option>
+              </select>
+              <div id="scatterplot"></div>
+            </div>
+            <div id="tooltip"></div>
+          </div>
+        </div>
+        <!-- END Chart ENTRIES -->
+      </div>
+
+      <!-- Right Entries -->
+      <div class="w3-col l4">
+        <!-- Group Into -->
+        <div class="w3-card w3-margin w3-margin-top">
+          <div class="w3-container w3-padding">
+            <h4><b>Group Infomation</b></h4>
+          </div>
+          <div class="w3-container w3-white">
+            <p>Suki Cai</p>
+            <p>Andy Liu</p>
+            <p>Anthony Cheng</p>
+          </div>
+        </div>
+        <hr>
+
+        <!-- Usage Senario -->
+        <div class="w3-card w3-margin">
+          <div class="w3-container w3-padding">
+            <h4>Usage Senario</h4>
+          </div>
+          <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+              <span class="w3-large">Lorem</span><br>
+              <span>Sed mattis nunc</span>
+            </li>
+            <li class="w3-padding-16">
+              <span class="w3-large">Ipsum</span><br>
+              <span>Praes tinci sed</span>
+            </li>
+            <li class="w3-padding-16">
+              <span class="w3-large">Dorum</span><br>
+              <span>Ultricies congue</span>
+            </li>
+            <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+              <!-- <img src="/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px"> -->
+              <span class="w3-large">Mingsum</span><br>
+              <span>Lorem ipsum dipsum</span>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <!-- Dataset Description -->
+        <div class="w3-card w3-margin w3-margin-top">
+          <div class="w3-container w3-padding">
+            <h4><b>Dataset Description</b></h4>
+          </div>
+          <div class="w3-container w3-white">
+
+            <p>Kaggle Datasets: https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who
+              The dataset contains a total 2938 total number of items, it contains 22 columns, but this visualization
+              focuses on features related to health intervention, so we would only use the 13 features in the following
+              table:
+            </p>
+          </div>
+        </div>
+        <hr>
+
+        <!-- Data Preprocessing -->
+        <div class="w3-card w3-margin w3-margin-top">
+          <div class="w3-container w3-padding">
+            <h4><b>Data Preprocessing</b></h4>
+          </div>
+          <div class="w3-container w3-white">
+            <p>The original dataset already has a lot of meaningful and important features that we need, so we wouldn’t
+              join other datasets. However, the dataset does have some missing values for some features, we would set
+              those values as null in javascript. When the application first loads the data, we would use javascript to
+              scan all the values and set null for all missing values.</p>
+          </div>
+        </div>
+        <hr>
+
+        <!-- Labels / tags -->
+        <div class="w3-card w3-margin">
+          <div class="w3-container w3-padding">
+            <h4>Tags</h4>
+          </div>
+          <div class="w3-container w3-white">
+            <p><span class="w3-tag w3-black w3-margin-bottom">Data Visualization</span> <span
+                class="w3-tag w3-light-grey w3-small w3-margin-bottom">D3</span> <span
+                class="w3-tag w3-light-grey w3-small w3-margin-bottom">JavaScript</span>
+              <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">HTML/CSS</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- END Introduction Menu -->
+      </div>
+
+      <!-- END GRID -->
+    </div><br>
+
+    <!-- END w3-content -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+    <button id="learn-more-btn" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Back To Top</button>
+  </footer>
+
+  <script src="js/d3.v6.min.js"></script>
+  <script src="js/topojson.v3.js"></script>
+  <script src="js/geoMap.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/scatterPlot.js"></script>
+  <script>
+    var learnMoreBtn = document.getElementById("learn-more-btn");
+    var backToTopBtn = document.getElementById("back-to-top-btn");
+
+    learnMoreBtn.addEventListener("click", function () {
+      header.scrollIntoView({ behavior: "smooth" });
+    });
+
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
+
 </html>
