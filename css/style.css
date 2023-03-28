@@ -7,8 +7,30 @@ body {
   fill: #cfdecd;
 }
 
-.geo-path:hover {
+.country:hover {
   stroke: #000;
+}
+
+.country.selected {
+  fill:#333;
+  stroke:#fff;
+}
+
+.country.unclickable {
+  stroke: none;
+}
+
+.point.selected {
+  stroke:#000;
+  fill:aqua;
+  opacity: 1;
+  position: relative;
+  z-index: 1000;
+}
+
+.point {
+  position: relative;
+  z-index: 1;
 }
 
 .geo-boundary-path {
@@ -16,13 +38,7 @@ body {
   fill: none;
   stroke-width: 0.4;
 }
-.geo-symbol {
-  fill: #3e5e79;
-  fill-opacity: 0.9;
-}
-.geo-symbol:hover {
-  fill-opacity: 1;
-}
+
 .geo-label {
   font-size: 0.7rem;
   font-weight: 500;
@@ -65,4 +81,17 @@ body {
 #year_slider {
   position: absolute;
   z-index: 300;
+}
+
+.dropdown {
+  font-size: "16px";
+  font-family: "sans-serif";
+  padding: "6px";
+  background-color: "#fff";
+  border: "1px solid #ccc";
+  border-radius: "4px";
+}
+
+.point:hover {
+  stroke: #000;
 }
