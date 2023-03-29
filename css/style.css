@@ -66,6 +66,23 @@ body {
   font-weight: 600;
 }
 
+.legend {
+  position: absolute;
+  background: #fff;
+  box-shadow: 3px 3px 3px 0px rgb(92 92 92 / 0.5);
+  border: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 20px;
+  min-width: 16px;
+  color: #333;
+}
+
+#year_slider {
+  position: absolute;
+  z-index: 300;
+}
+
 .dropdown {
   font-size: "16px";
   font-family: "sans-serif";

@@ -16,10 +16,30 @@
         <div id="scatterplot"></div>
     </div>
     <div id="tooltip"></div>
+    <div>
+        <ul class="legend" >
+        </ul>
+        <svg id="line-chart"></svg>
+    </div>
+   
+    <div>
+        <input type="range" id="year_slider" name="year" min="2000" max="2015" value="2000" step="1" smooth="yes">
+    </div>
+
+    <div>
+        <svg id="bar-chart"></svg>
+    </div>
+
+    <div>
+        <button id="time_button">See the Change!</button>
+    </div>
     
+
     <script src="js/d3.v6.min.js"></script>
     <script src="js/topojson.v3.js"></script>
     <script src="js/geoMap.js"></script>
+    <script src="js/lineChart.js"></script>
+    <script src="js/barChart.js"></script>
     <script src="js/main.js"></script>
     <script src="js/scatterPlot.js"></script>
 </body>
